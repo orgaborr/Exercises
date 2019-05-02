@@ -4,27 +4,13 @@ The next number is found by adding up the two numbers before it.
 Assume that indexes start at zero, e.g., fib(0) = 0, fib(1) = 1, ... */
 
 public Integer fibonacci(Integer n) {
-int count = 0;
-int num = 0;
-
-if(n == 0) {
-return 0;
+int[] fibo = new int[n+2];
+    fibo[0] = 0;
+    fibo[1] = 1;
+    if(n>1) {
+    for(int i=2; i<fibo.length; i++) {
+      fibo[i] = fibo[i-1]+fibo[i-2];
+    }
 }
-
-while(count <= n) {
-int last = 0;
-int current = 1;
-int save = 0;
-
-num = last + current;
-save = current;
-current = num;
-last = save;
-
-count++;
-if(count == n) {
-return num;
-}
-}
-return -1;
+    return fibo[n];
 }
